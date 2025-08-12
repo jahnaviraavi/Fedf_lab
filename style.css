@@ -1,0 +1,16 @@
+/* Make the body take full height and use flexbox */
+body {
+    margin: 0;
+    height: 100vh; /* full screen height */
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+    background-color: lightblue; /* just for styling */
+}
+
+.image-container img {
+    max-width: 80%;   /* responsive image */
+    height: auto;     /* keep aspect ratio */
+    border: 3px solid darkblue;
+    border-radius: 10px;
+}
