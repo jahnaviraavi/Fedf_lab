@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>News Portal Mega Menu</title>
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+				.dropdown-menu.mega-menu {
+						width: 400px;
+						padding: 1rem;
+				}
+				.dropdown-menu.mega-menu .list-group-item {
+						border: none;
+						padding: 0.25rem 0;
+				}
+				@media (max-width: 991.98px) {
+						.dropdown-menu.mega-menu {
+								width: 100%;
+						}
+				}
+		</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">News Portal</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<!-- Politics Mega Menu -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="politicsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Politics
+					</a>
+					<div class="dropdown-menu mega-menu" aria-labelledby="politicsDropdown">
+						<input type="text" class="form-control mb-2 topic-search" placeholder="Search topics..." data-category="politics">
+						<div class="list-group">
+							<a href="elections.html" class="list-group-item politics">Elections</a>
+							<a href="#" class="list-group-item politics">Government Policies</a>
+							<a href="#" class="list-group-item politics">International Relations</a>
+						</div>
+					</div>
+				</li>
+				<!-- Sports Mega Menu -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="sportsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Sports
+					</a>
+					<div class="dropdown-menu mega-menu" aria-labelledby="sportsDropdown">
+						<input type="text" class="form-control mb-2 topic-search" placeholder="Search topics..." data-category="sports">
+						<div class="list-group">
+							<a href="#" class="list-group-item sports">Football</a>
+							<a href="#" class="list-group-item sports">Cricket</a>
+						</div>
+					</div>
+				</li>
+				<!-- Technology Mega Menu -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="techDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Technology
+					</a>
+					<div class="dropdown-menu mega-menu" aria-labelledby="techDropdown">
+						<input type="text" class="form-control mb-2 topic-search" placeholder="Search topics..." data-category="technology">
+						<div class="list-group">
+							<a href="#" class="list-group-item technology">Gadgets</a>
+							<a href="#" class="list-group-item technology">AI & Robotics</a>
+							<a href="#" class="list-group-item technology">Software Updates</a>
+						</div>
+					</div>
+				</li>
+				<!-- Entertainment Mega Menu -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="entDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Entertainment
+					</a>
+					<div class="dropdown-menu mega-menu" aria-labelledby="entDropdown">
+						<input type="text" class="form-control mb-2 topic-search" placeholder="Search topics..." data-category="entertainment">
+						<div class="list-group">
+							<a href="#" class="list-group-item entertainment">Movies</a>
+							<a href="#" class="list-group-item entertainment">Music</a>
+							<a href="#" class="list-group-item entertainment">TV Shows</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Search filter for mega menu topics
+document.querySelectorAll('.topic-search').forEach(function(input) {
+	input.addEventListener('keyup', function() {
+		var filter = this.value.toLowerCase();
+		var category = this.getAttribute('data-category');
+		var items = this.parentElement.querySelectorAll('.list-group-item.' + category);
+		items.forEach(function(item) {
+			if (item.textContent.toLowerCase().indexOf(filter) > -1) {
+				item.style.display = '';
+			} else {
+				item.style.display = 'none';
+			}
+		});
+	});
+});
+</script>
+</body>
+</html>
